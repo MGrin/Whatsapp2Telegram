@@ -5,13 +5,22 @@ description = ""
 authors = ["MGrin <mr6r1n@gmail.com>"]
 readme = "README.md"
 
+[tool.poetry.scripts]
+test = "pytest:main"
+
 [tool.poetry.dependencies]
 python = "^3.11"
 selenium = "^4.25.0"
 python-telegram-bot = "^21.6"
 python-dotenv = "^1.0.1"
 pillow = "^10.4.0"
+pytest = "^8.3.3"
+pytest-asyncio = "^0.24.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.pytest.ini_options]
+asyncio_mode = "strict"
+asyncio_default_fixture_loop_scope = "function"
