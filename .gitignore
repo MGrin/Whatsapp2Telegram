@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Poetry
+.venv/
+poetry.lock
+
+# Environment variables
+.env
+whatsapp_user_data
+
+# Logs
+*.log
+
+# IDEs and editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Selenium WebDriver
+geckodriver.log
+chromedriver.log
+
+# Project specific
+whatsapp_screenshot_*.png
+whatsapp_page_dump.html
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Pytest
+.pytest_cache/
+
+# Coverage reports
+htmlcov/
+.coverage
+.coverage.*
+coverage.xml
+
+# Mypy
+.mypy_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints

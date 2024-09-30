@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "whatsapp2telegram"
+version = "0.1.0"
+description = ""
+authors = ["MGrin <mr6r1n@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+selenium = "^4.25.0"
+python-telegram-bot = "^21.6"
+python-dotenv = "^1.0.1"
+pillow = "^10.4.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
