@@ -73,7 +73,7 @@ class WhatsAppClient:
             raise Exception("Authentication failed")
 
     async def get_new_messages(self) -> list[dict[str, str]]:
-        print("Getting new messages")
+        print("Getting new whatsapp messages")
         try:
             if self.driver is None:
                 raise WebDriverException("WebDriver is not initialized")
@@ -98,11 +98,11 @@ class WhatsAppClient:
             )
 
             unread_chats = unread_chats[1:]
-            if len(unread_chats) > 0:
-                print(f"Unread chats: {len(unread_chats)}")
+            print(f"Unread chats: {len(unread_chats)}")
 
             messages: list[dict[str, str]] = []
             for chat in unread_chats:
+                print(f"chat: {chat.text}")
                 unread_count = chat.get_attribute("aria-label")  # type: ignore
                 if unread_count:
                     unread_count = unread_count.split()[0]
