@@ -21,6 +21,7 @@ class WhatsAppClient:
         chrome_options.add_argument("--headless=new")  # type: ignore
         chrome_options.add_argument("--lang=en")  # type: ignore
         chrome_options.add_argument(f"user-data-dir={self.user_data_dir}")  # type: ignore
+        chrome_options.add_argument("--window-size=1920,1080")  # type: ignore
         self.driver = webdriver.Chrome(options=chrome_options)
         self.driver.get("https://web.whatsapp.com")
         if not self._is_authenticated():
