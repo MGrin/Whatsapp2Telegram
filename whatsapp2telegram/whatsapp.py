@@ -73,6 +73,7 @@ class WhatsAppClient:
             raise Exception("Authentication failed")
 
     async def get_new_messages(self) -> list[dict[str, str]]:
+        print("Getting new messages")
         try:
             if self.driver is None:
                 raise WebDriverException("WebDriver is not initialized")
