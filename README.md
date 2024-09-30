@@ -2,6 +2,8 @@
 
 A simple server to forward messages from WhatsApp to Telegram and vice versa using Selenium and Telegram Bot API.
 
+For a detailed explanation of this project, check out the [WhatsApp2Telegram: Bridging Two Messaging Worlds](https://medium.com/@mgrin/whatsapp2telegram-8ebfb3114904) article on Medium.
+
 ## Features
 
 - Forward messages from WhatsApp to Telegram
