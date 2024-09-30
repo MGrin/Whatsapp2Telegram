@@ -45,6 +45,7 @@ class WhatsAppClient:
             return False
 
     async def _authenticate(self):
+        print("Authenticating...")
         if self.driver is None:
             raise WebDriverException("WebDriver is not initialized")
         qr_canvas_element = WebDriverWait(self.driver, 30).until(
@@ -96,6 +97,9 @@ class WhatsAppClient:
             )
 
             unread_chats = unread_chats[1:]
+            if len(unread_chats) > 0:
+                print(f"Unread chats: {len(unread_chats)}")
+
             messages: list[dict[str, str]] = []
             for chat in unread_chats:
                 unread_count = chat.get_attribute("aria-label")  # type: ignore
