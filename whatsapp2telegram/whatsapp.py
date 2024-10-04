@@ -101,6 +101,8 @@ class WhatsAppClient:
             print(f"Unread chats: {len(unread_chats)}")
 
             messages: list[dict[str, str]] = []
+            requres_refresh = len(unread_chats) > 1
+
             for chat in unread_chats:
                 print(f"chat: {chat.text}")
                 unread_count = chat.get_attribute("aria-label")  # type: ignore
@@ -143,7 +145,8 @@ class WhatsAppClient:
                         }
                     )
 
-            self.driver.refresh()
+            if requres_refresh:
+                self.driver.refresh()
             return messages
         except WebDriverException as e:
             print("[get_new_messages] WebDriver connection lost. Restarting...")
