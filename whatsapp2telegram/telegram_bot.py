@@ -1,4 +1,5 @@
 from telegram import Update
+from telegram.request import HTTPXRequest
 from telegram.ext import (
     Application,
     CommandHandler,
@@ -12,8 +13,14 @@ class TelegramBot:
     def __init__(self, token: str, chat_id: str):
         self.token = token
         self.chat_id = chat_id
+        request = HTTPXRequest(
+            connection_pool_size=8,
+            read_timeout=30,
+            write_timeout=30,
+            connect_timeout=30,
+        )
         self.application = (
-            Application.builder().token(self.token).read_timeout(30).build()
+            Application.builder().token(self.token).request(request=request).build()
         )
         self.replies: list[dict[str, str]] = []
 
