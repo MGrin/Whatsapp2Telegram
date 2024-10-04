@@ -12,7 +12,9 @@ class TelegramBot:
     def __init__(self, token: str, chat_id: str):
         self.token = token
         self.chat_id = chat_id
-        self.application = Application.builder().token(self.token).build()
+        self.application = (
+            Application.builder().token(self.token).read_timeout(30).build()
+        )
         self.replies: list[dict[str, str]] = []
 
     async def start(self):
