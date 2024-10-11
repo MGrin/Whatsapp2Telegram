@@ -73,6 +73,9 @@ class WhatsAppClient:
             raise Exception("Authentication failed")
 
     async def get_new_messages(self) -> list[dict[str, str]]:
+        if not self._is_authenticated():
+            await self._authenticate()
+
         print("Getting new whatsapp messages")
         try:
             if self.driver is None:

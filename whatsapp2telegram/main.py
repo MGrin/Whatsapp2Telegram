@@ -58,7 +58,7 @@ async def main():
             for reply in replies:
                 await whatsapp_client.send_message(reply["chat"], reply["text"])
 
-            await asyncio.sleep(2)
+            await asyncio.sleep(30)
 
     except asyncio.CancelledError:
         pass

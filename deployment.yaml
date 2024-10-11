@@ -1,0 +1,36 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: whatsapp2telegram
+spec:
+  selector:
+    app: whatsapp2telegram
+  ports:
+    - port: 6000
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: whatsapp2telegram
+spec:
+  selector:
+    matchLabels:
+      app: whatsapp2telegram
+  replicas: 4
+  template:
+    metadata:
+      labels:
+        app: whatsapp2telegram
+    spec:
+      containers:
+      - name: whatsapp2telegram
+        image: whatsapp2telegram:latest
+        imagePullPolicy: IfNotPresent
+        volumeMounts:
+          - name: whatsapp-user-data
+            mountPath: /app/whatsapp_user_data
+      volumes:
+      - name: whatsapp-user-data
+        emptyDir:
+          sizeLimit: 50Mi
